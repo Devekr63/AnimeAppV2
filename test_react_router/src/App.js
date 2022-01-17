@@ -6,6 +6,7 @@ import Layout2 from './components/layouts/layout_v2';
 import{BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './components/homePage/homePage';
 import AnimeDetails from './components/details/container';
+import Top from './components/topAnime/index';
 
 function App() {
   const [animeInfo, handleAnimeInfo] = useState();
@@ -24,6 +25,11 @@ function App() {
           <Route path="/" element={<Layout/>}>
             <Route path="/" element={<Home animeData={(anime) => getDetails(anime)}/>}/>
             <Route path={animePath.toString().trim()} element={<AnimeDetails data={animeInfo}/>}/>
+            <Route 
+              path="top_100" 
+              element={<Top/>}
+              animeData={(anime) => getDetails(anime)}
+              />
           </Route>
         </Routes>
       

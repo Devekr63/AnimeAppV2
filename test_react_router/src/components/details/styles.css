@@ -146,7 +146,7 @@ li{
     display: grid;
     padding: .5rem;
     gap: .5rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .details--box  ul:last-child li{

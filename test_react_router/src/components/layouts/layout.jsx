@@ -6,7 +6,7 @@ import './styles.css'
 
 const path = {
     p1 : "/home",
-    p2 : "/top_list"
+    p2 : "/top_100"
 }
 
 function layout() {
