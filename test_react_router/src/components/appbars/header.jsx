@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { NavLink, Link } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Top 100', 'Home'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
@@ -96,17 +96,24 @@ const ResponsiveAppBar = (props) => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-                component={Link}
-                to={props.pathTo.p1}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              key={pages[0]}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              component={Link}
+              to={props.pathTo.p2}
+            >
+              {pages[0]}
+            </Button>
+            <Button
+              key={pages[1]}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              component={Link}
+              to={props.pathTo.p1}
+            >
+              {pages[1]}
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

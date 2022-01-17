@@ -3,7 +3,7 @@ import './App.css';
 import Layout from './components/layouts/layout';
 import Layout2 from './components/layouts/layout_v2';
 import{BrowserRouter, Routes, Route} from 'react-router-dom';
-import Hello from './components/cards/hello';
+import Home from './components/homePage/homePage';
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Layout/>}>
-            <Route path="hello" element={<Hello/>}/>
+            <Route path="/" element={<Home/>}/>
+            <Route path="home" element={<Home/>}/>
           </Route>
         </Routes>
       

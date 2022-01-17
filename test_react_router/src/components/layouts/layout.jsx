@@ -1,19 +1,20 @@
 import React from 'react'
 import AppBar from '../appbars/header';
 import { Outlet } from 'react-router-dom';
+import Footer from '../appbars/footer';
+import './styles.css'
 
 const path = {
-    p1 : "/hello",
-    p2 : "/name"
+    p1 : "/home",
+    p2 : "/top_list"
 }
 
 function layout() {
     return (
-        <div>
-            <nav>
-                <AppBar pathTo={path}/>
-            </nav>
+        <div className='layout--container'>
+            <AppBar pathTo={path}/>
             <Outlet/>
+            <Footer/>
         </div>
     )
 }
