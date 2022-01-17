@@ -8,6 +8,7 @@ import { makeStyles } from '@mui/styles';
 import {useState, useEffect} from 'react'
 import {getAnimeName, getAnime, getAnimeDesc, getAnimeFromApi} from '../utilities'
 import { searchButtonStyle, autoStyle } from './searchStyles';
+import {NavLink} from 'react-router-dom';
 
 
 const useStyles = makeStyles(autoStyle)
@@ -17,7 +18,7 @@ export default function FreeSolo(props) {
     const classes = useStyles();
     const [animeList, handleAnimeList] = useState([]);
     const [searchedAnime, handlesearch] = useState();
-    const [animeDesc, handleDesc] = useState();
+    const [animeDesc, handleDesc] = useState("");
 
     useEffect(() => {
       getRequest();
@@ -25,13 +26,14 @@ export default function FreeSolo(props) {
 
     async function getRequest(){
       let response = await axios.get('https://api.aniapi.com/v1/anime')
-      console.log(getAnimeName(response.data));
+      // console.log(getAnimeName(response.data));
       handleAnimeList(getAnimeName(response.data));
     }
     
     async function getAnimeDetails(animeInfo){
       let response = await axios.get(`https://api.aniapi.com/v1/anime/${animeInfo.id}`)
-      props.animeData(getAnimeDesc(response));
+      handleDesc(getAnimeDesc(response).id);
+      await props.animeData(getAnimeDesc(response));
     }
 
     function searchHandler(event, value){
@@ -70,6 +72,12 @@ export default function FreeSolo(props) {
         variant="contained" 
         color="primary"
         onClick={() => getAnimeDetails(searchedAnime)}
+        component={NavLink}
+        to={
+          searchedAnime && searchedAnime.id ?
+          "/"+searchedAnime.id.toString() :
+          ""
+        }
         sx={searchButtonStyle}>
         Search
       </Button>

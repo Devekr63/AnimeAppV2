@@ -37,7 +37,7 @@ const ResponsiveAppBar = (props) => {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{backgroundColor:'#242B2E'}}>
         <Toolbar disableGutters>
             <Typography
                 variant="h6"
@@ -110,7 +110,7 @@ const ResponsiveAppBar = (props) => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               component={Link}
-              to={props.pathTo.p1}
+              to={"/"}
             >
               {pages[1]}
             </Button>
