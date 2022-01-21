@@ -1,0 +1,3 @@
+Issues faced in the project ->
+1) useEffect method is not running in container component, date : 21/01/22 | solved : date 21/01/22
+2) render container component from the Top 100 anime list, date 21/02/22 |  

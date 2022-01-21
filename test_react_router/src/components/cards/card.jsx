@@ -17,7 +17,8 @@ function getSpaces(val){
 export default function ActionAreaCard(props) {
   return (
     <Card sx={{ maxWidth: 345, minWidth:"75%", minHeight:300,
-         boxShadow:"1px 1px 10px 10px rgba(0,0,0,0.25)" }}>
+         boxShadow:"1px 1px 10px 10px rgba(0,0,0,0.25)",
+         "&:hover":{"opacity":"0.25"} }}>
       <CardActionArea
             component={NavLink}
             to={"/"+props.id}>

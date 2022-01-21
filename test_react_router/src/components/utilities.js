@@ -16,7 +16,7 @@ export async function getAnimeFromApi(animeList, animeTitle, handleList){
 }
 
 export function getAnimeDesc(response){
-    // console.log(response.data.data)
+    console.log(response.data.data)
     return response.data.data
 }
 

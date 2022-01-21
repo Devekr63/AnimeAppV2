@@ -9,12 +9,12 @@ import AnimeDetails from './components/details/container';
 import Top from './components/topAnime/index';
 
 function App() {
-  const [animeInfo, handleAnimeInfo] = useState();
-  const [animePath, updateAnimePath] = useState("");
+  // const [animeInfo, handleAnimeInfo] = useState();
+  const [animePath, updateAnimePath] = useState("none");
 
   function getDetails(res){
-    console.log(res);
-   handleAnimeInfo(res);
+    // console.log(res);
+    console.log(res.id+" At app...");
    updateAnimePath(res.id);
   }
 
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route path="/" element={<Home animeData={(anime) => getDetails(anime)}/>}/>
-            <Route path={animePath.toString().trim()} element={<AnimeDetails data={animeInfo}/>}/>
+            <Route path={`${animePath}`} element={<AnimeDetails data={animePath}/>}/>
             <Route 
               path="top_100" 
               element={<Top/>}

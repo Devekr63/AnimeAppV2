@@ -24,14 +24,13 @@ function TopAnime(props){
             <div className="cards--container">
                 {topAnimeList.slice(0,12).map(
                     anime =>
-                        <div>
+                        <div key={anime.id}>
                             <Card
                                 title={anime.titles.en}
                                 image={anime.cover_image}
                                 brief={anime.descriptions.en}
                                 id={anime.id}
-                                key={anime.id}
-                                getData = {props.animeData}
+                                getData = {() => props.animeData(anime)}
                             />
                         </div>
                 )}

@@ -30,10 +30,12 @@ export default function FreeSolo(props) {
       handleAnimeList(getAnimeName(response.data));
     }
     
-    async function getAnimeDetails(animeInfo){
-      let response = await axios.get(`https://api.aniapi.com/v1/anime/${animeInfo.id}`)
-      handleDesc(getAnimeDesc(response).id);
-      await props.animeData(getAnimeDesc(response));
+    const getAnimeDetails = (animeInfo) => {
+      console.log(animeInfo)
+      console.log(" At search....");
+      // let response = await axios.get(`https://api.aniapi.com/v1/anime/${animeInfo.id}`);
+      // handleDesc(getAnimeDesc(response));
+      props.animeData(animeInfo);
     }
 
     function searchHandler(event, value){
@@ -75,7 +77,7 @@ export default function FreeSolo(props) {
         component={NavLink}
         to={
           searchedAnime && searchedAnime.id ?
-          "/"+searchedAnime.id.toString() :
+          `/${searchedAnime.id.toString()}` :
           ""
         }
         sx={searchButtonStyle}>
