@@ -3,3 +3,18 @@
   min-height: 100vh ;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+  border: 1px solid hsla(172, 11%, 36%, 0.4);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsla(172, 11%, 36%, 0.4);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(172, 11%, 36%, 0.9);
+  }

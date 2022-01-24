@@ -71,13 +71,14 @@ export default function FreeSolo(props) {
       />
       <Button 
         size="medium" 
+        disabled={searchedAnime ? false : true}
         variant="contained" 
         color="primary"
         onClick={() => getAnimeDetails(searchedAnime)}
         component={NavLink}
         to={
           searchedAnime && searchedAnime.id ?
-          `/${searchedAnime.id.toString()}` :
+          `/detailed/${searchedAnime.id.toString()}` :
           ""
         }
         sx={searchButtonStyle}>

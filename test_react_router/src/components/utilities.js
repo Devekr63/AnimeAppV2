@@ -16,11 +16,10 @@ export async function getAnimeFromApi(animeList, animeTitle, handleList){
 }
 
 export function getAnimeDesc(response){
-    console.log(response.data.data)
     return response.data.data
 }
 
-export function removeHtmlTags (str, replacer) {
-	const regex = /<(\/*?)(?!(em|p|br\s*\/|strong))\w+?.+?>/gim;
-    return str.replaceAll(regex, replacer);
-};
+export function removeHtmlTags (str, replacer="") {
+	const regex = /<(\/*?)(?!(em|p|br\s*\/|strong))\w+?.+?>/gim
+    return str ? str.replaceAll(regex, replacer) : "";
+}

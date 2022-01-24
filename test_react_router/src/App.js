@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Layout from './components/layouts/layout';
+import LayDiv from './components/layouts/detailedLayout';
 import Layout2 from './components/layouts/layout_v2';
 import{BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './components/homePage/homePage';
@@ -24,12 +25,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route path="/" element={<Home animeData={(anime) => getDetails(anime)}/>}/>
-            <Route path={`${animePath}`} element={<AnimeDetails data={animePath}/>}/>
             <Route 
               path="top_100" 
               element={<Top/>}
               animeData={(anime) => getDetails(anime)}
               />
+            <Route path="detailed" element={<LayDiv/>}>
+              <Route path=":animeId" element={<AnimeDetails data={animePath}/>}/>
+            </Route>  
           </Route>
         </Routes>
       

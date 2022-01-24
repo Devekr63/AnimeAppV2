@@ -21,12 +21,12 @@ export default function ActionAreaCard(props) {
          "&:hover":{"opacity":"0.25"} }}>
       <CardActionArea
             component={NavLink}
-            to={"/"+props.id}>
+            to={"/detailed/"+props.id}>
         <CardMedia
           component="img"
           height="140"
           image={props.image}
-          alt="green iguana"
+          alt={`${props.title}`}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

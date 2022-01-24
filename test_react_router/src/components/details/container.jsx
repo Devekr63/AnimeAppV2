@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import {getAnimeDesc} from '../utilities';
 import './styles.css'
@@ -16,14 +17,16 @@ function Container(props) {
     useEffect(() => {
         console.log(" container useEffect");
         getRequest();
-        }, [props.data]);
+        }, []);
 
     async function getRequest(){
-        let response = await axios.get(`https://api.aniapi.com/v1/anime/${props.data}`);
+        let response = await axios.get(`https://api.aniapi.com/v1/anime/${params.animeId}`);
         console.log(response);
         console.log(" At container...");
         updateAniDetails(getAnimeDesc(response));
     }
+
+    let params = useParams();
 
     return (
         <div className="main" key={aniDetails.id}>
